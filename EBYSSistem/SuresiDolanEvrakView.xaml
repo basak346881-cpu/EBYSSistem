@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="EBYSSistem.SuresiDolanEvrakView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#F1F5F9">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="White" CornerRadius="10" Padding="15" Margin="0,0,0,15">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="⏳ Yasal İşlem Süresi Dolan / Geciken Evrak Takibi" FontSize="16" FontWeight="Bold" Foreground="#DC2626" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="10" Padding="15">
+            <DataGrid x:Name="dgSuresiDolanlar" AutoGenerateColumns="False" IsReadOnly="True" GridLinesVisibility="Horizontal" Background="Transparent">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Evrak Kodu" Binding="{Binding EvrakKodu}" Width="140"/>
+                    <DataGridTextColumn Header="Başvuran Vatandaş / Kurum" Binding="{Binding Basvuran}" Width="180"/>
+                    <DataGridTextColumn Header="İşlemdeki Müdürlük" Binding="{Binding Birim}" Width="180"/>
+                    <DataGridTextColumn Header="Kayıt Tarihi" Binding="{Binding KayitTarihi}" Width="110"/>
+                    <DataGridTextColumn Header="Geçen Gün" Binding="{Binding GecenGun}" Width="100"/>
+                    <DataGridTextColumn Header="Gecikme Durumu" Binding="{Binding Durum}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>

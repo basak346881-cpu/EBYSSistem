@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="EBYSSistem.AdaParselAramaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#F1F5F9">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <TextBlock Text="Mahalle:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,4"/>
+                    <ComboBox x:Name="cmbMahalle" Height="36" SelectedIndex="0" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="-- Mahalle Seçiniz --"/>
+                        <ComboBoxItem Content="50. Yıl Mahallesi"/>
+                        <ComboBoxItem Content="75. Yıl Mahallesi"/>
+                        <ComboBoxItem Content="Cebeci Mahallesi"/>
+                        <ComboBoxItem Content="Esentepe Mahallesi"/>
+                        <ComboBoxItem Content="Eski Habipler Mahallesi"/>
+                        <ComboBoxItem Content="Gazi Mahallesi"/>
+                        <ComboBoxItem Content="Habipler Mahallesi"/>
+                        <ComboBoxItem Content="İsmetpaşa Mahallesi"/>
+                        <ComboBoxItem Content="Malkoçoğlu Mahallesi"/>
+                        <ComboBoxItem Content="Mimar Sinan Mahallesi"/>
+                        <ComboBoxItem Content="Sultançiftliği Mahallesi"/>
+                        <ComboBoxItem Content="Uğur Mumcu Mahallesi"/>
+                        <ComboBoxItem Content="Yayla Mahallesi"/>
+                        <ComboBoxItem Content="Yunusemre Mahallesi"/>
+                        <ComboBoxItem Content="Zübeyde Hanım Mahallesi"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                    <TextBlock Text="Ada No:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtAda" Height="36" Padding="5,0" VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Margin="0,0,10,0">
+                    <TextBlock Text="Parsel No:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtParsel" Height="36" Padding="5,0" VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <Button x:Name="btnAra" Grid.Column="3" Content="🔍 Ara" Height="36" VerticalAlignment="Bottom" Background="#0D9488" Foreground="White" FontWeight="Bold" Click="btnAra_Click"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="10" Padding="15">
+            <DataGrid x:Name="dgAdaParselSonuc" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ada / Parsel" Binding="{Binding AdaParsel}" Width="120"/>
+                    <DataGridTextColumn Header="Malik / İsim" Binding="{Binding Malik}" Width="180"/>
+                    <DataGridTextColumn Header="İmar Evrak Kodu" Binding="{Binding EvrakKodu}" Width="150"/>
+                    <DataGridTextColumn Header="İşlem Türü" Binding="{Binding IslemTuru}" Width="*"/>
+                    <DataGridTextColumn Header="Tarih" Binding="{Binding Tarih}" Width="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>

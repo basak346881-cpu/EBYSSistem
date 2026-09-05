@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="EBYSSistem.RaporlarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#F1F5F9">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="160"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <TextBlock Text="Başlangıç Tarihi:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,4"/>
+                    <DatePicker Height="36"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                    <TextBlock Text="Bitiş Tarihi:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,4"/>
+                    <DatePicker Height="36"/>
+                </StackPanel>
+
+                <Button x:Name="btnRaporOlustur" Grid.Column="2" Content="📊 Rapor Oluştur" Height="36" VerticalAlignment="Bottom" Background="#16A34A" Foreground="White" FontWeight="Bold" Click="btnRaporOlustur_Click"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="10" Padding="15">
+            <DataGrid x:Name="dgRapor" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Müdürlük Adı" Binding="{Binding MudurUnvan}" Width="*"/>
+                    <DataGridTextColumn Header="Gelen Toplam Evrak" Binding="{Binding ToplamEvrak}" Width="160"/>
+                    <DataGridTextColumn Header="Cevaplanan / Tamamlanan" Binding="{Binding Tamamlanan}" Width="180"/>
+                    <DataGridTextColumn Header="Süreci Devam Eden" Binding="{Binding DevamEden}" Width="160"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="EBYSSistem.DetayliSorgulamaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#F1F5F9">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Üst Arama Filtre Paneli -->
+        <Border Grid.Row="0" Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <TextBlock Text="T.C. Kimlik / Vergi No:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtAraTC" Height="36" Padding="5,0" VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                    <TextBlock Text="Ad Soyad / Firma Ünvanı:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtAraAd" Height="36" Padding="5,0" VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Margin="0,0,10,0">
+                    <TextBlock Text="Evrak Kodu:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,4"/>
+                    <TextBox x:Name="txtAraKod" Height="36" Padding="5,0" VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <Button x:Name="btnSorgula" Grid.Column="3" Content="🔍 Sorgula" Height="36" VerticalAlignment="Bottom" Background="#2563EB" Foreground="White" FontWeight="Bold" Click="btnSorgula_Click"/>
+            </Grid>
+        </Border>
+
+        <!-- Alt İçerik Alanı: Sol Klasör Ağacı + Sağ Evrak Tablosu -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="310"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- SOL: SULTANGAZİ BELEDİYESİ TÜM MÜDÜRLÜK ARŞİV KLASÖRLERİ -->
+            <Border Grid.Column="0" Background="White" CornerRadius="10" Padding="15" Margin="0,0,15,0">
+                <DockPanel>
+                    <TextBlock Text="📁 Birim Arşiv Klasörleri" DockPanel.Dock="Top" FontSize="14" FontWeight="Bold" Foreground="#1E293B" Margin="0,0,0,10"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <TreeView x:Name="tvKlasorler" SelectedItemChanged="tvKlasorler_SelectedItemChanged" BorderThickness="0" Background="Transparent">
+                            <TreeViewItem Header="📂 Sultangazi Belediyesi Arşivi" IsExpanded="True" FontWeight="Bold" Foreground="#0284C7">
+                                <TreeViewItem Header="📁 Kadın ve Aile Hizmetleri Arşiv Klasörü" Tag="Kadın ve Aile Hizmetleri" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Afet İşleri ve Risk Yönetimi Arşiv Klasörü" Tag="Afet İşleri ve Risk Yönetimi" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Bilgi İşlem Arşiv Klasörü" Tag="Bilgi İşlem" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Emlak İstimlak Arşiv Klasörü" Tag="Emlak ve İstimlak Müdürlüğü" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Gençlik ve Spor Arşiv Klasörü" Tag="Gençlik ve Spor" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Hukuk Arşiv Klasörü" Tag="Hukuk İşleri" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 İklim Değişikliği ve Sıfır Atık Arşiv Klasörü" Tag="İklim Değişikliği" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 İnsan Kaynakları Arşiv Klasörü" Tag="İnsan Kaynakları" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Kültür Arşiv Klasörü" Tag="Kültür İşleri" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Özel Kalem Arşiv Klasörü" Tag="Özel Kalem" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Plan ve Proje Arşiv Klasörü" Tag="Plan ve Proje" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Strateji Geliştirme Arşiv Klasörü" Tag="Strateji Geliştirme" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Teknik Birimler İmar Arşiv Klasörü" Tag="İmar ve Şehircilik Müdürlüğü" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Kentsel Dönüşüm Arşiv Klasörü" Tag="Kentsel Dönüşüm Müdürlüğü" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Yapı Kontrol Arşiv Klasörü" Tag="Yapı Kontrol Müdürlüğü" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Fen İşleri Arşiv Klasörü" Tag="Fen İşleri Müdürlüğü" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Temizlik Arşiv Klasörü" Tag="Temizlik İşleri" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Veteriner İşleri Arşiv Klasörü" Tag="Veteriner İşleri" FontWeight="Normal" Foreground="#475569"/>
+                                <TreeViewItem Header="📁 Yazı İşleri Arşiv Klasörü" Tag="Yazı İşleri Müdürlüğü" FontWeight="Normal" Foreground="#475569"/>
+                            </TreeViewItem>
+                        </TreeView>
+                    </ScrollViewer>
+                </DockPanel>
+            </Border>
+
+            <!-- SAĞ: ARŞİV EVRAK SONUÇ TABLOSU -->
+            <Border Grid.Column="1" Background="White" CornerRadius="10" Padding="15">
+                <DataGrid x:Name="dgSorguSonuc" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Kayıt Tarihi" Binding="{Binding Tarih}" Width="130"/>
+                        <DataGridTextColumn Header="Evrak Kodu" Binding="{Binding EvrakKodu}" Width="150"/>
+                        <DataGridTextColumn Header="Başvuran" Binding="{Binding Basvuran}" Width="180"/>
+                        <DataGridTextColumn Header="Konu" Binding="{Binding Konu}" Width="*"/>
+                        <DataGridTextColumn Header="Sevk Edilen Birim" Binding="{Binding Birim}" Width="180"/>
+                        <DataGridTextColumn Header="Durum" Binding="{Binding Durum}" Width="110"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

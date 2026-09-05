@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="EBYSSistem.AyarlarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#F1F5F9">
+    <Grid Margin="20">
+        <Border Background="White" CornerRadius="10" Padding="30" HorizontalAlignment="Left" VerticalAlignment="Top" Width="640">
+            <StackPanel>
+                <TextBlock Text="⚙️ EBYS Sistem &amp; Donanım Ayarları" FontSize="18" FontWeight="Bold" Foreground="#1E293B" Margin="0,0,0,20"/>
+
+                <!-- Tarayıcı Cihaz Seçimi -->
+                <TextBlock Text="Varsayılan Evrak Tarayıcı (Scanner Cihazı):" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,5"/>
+                <ComboBox x:Name="cmbScanner" Height="38" Margin="0,0,0,15" SelectedIndex="0">
+                    <ComboBoxItem Content="Fujitsu PaperStream IP fi-7160 #9 (TWAIN - Varsayılan)"/>
+                    <ComboBoxItem Content="Kodak Alaris i2900 Scanner (TWAIN)"/>
+                    <ComboBoxItem Content="Canon DR-C240 Document Scanner"/>
+                </ComboBox>
+
+                <!-- Tarama Tonlama & Besleme Modu -->
+                <Grid Margin="0,0,0,15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                        <TextBlock Text="Kağıt Besleme Tipi:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,5"/>
+                        <ComboBox x:Name="cmbBesleme" Height="38" SelectedIndex="0">
+                            <ComboBoxItem Content="Otomatik Besleyici (ADF)"/>
+                            <ComboBoxItem Content="Düz Yatak (Flatbed)"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                        <TextBlock Text="Renk / Tonlama Modu:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,5"/>
+                        <ComboBox x:Name="cmbTonlama" Height="38" SelectedIndex="0">
+                            <ComboBoxItem Content="Siyah - Beyaz (Sıkıştırılmış)"/>
+                            <ComboBoxItem Content="Gri Tonlama (Grayscale)"/>
+                            <ComboBoxItem Content="24-bit Renkli"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Barkod Yazıcı Seçimi -->
+                <TextBlock Text="Barkod Etiket Yazıcısı:" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,5"/>
+                <ComboBox x:Name="cmbYazici" Height="38" Margin="0,0,0,15" SelectedIndex="0">
+                    <ComboBoxItem Content="Zebra ZD421 Barcode Printer (USB001 - ZPL)"/>
+                    <ComboBoxItem Content="Argox OS-214plus Direct Thermal Printer"/>
+                </ComboBox>
+
+                <!-- DPI Seçimi -->
+                <TextBlock Text="Tarama Çözünürlüğü (DPI):" FontWeight="SemiBold" Foreground="#475569" Margin="0,0,0,5"/>
+                <ComboBox x:Name="cmbDPI" Height="38" Margin="0,0,0,25" SelectedIndex="1">
+                    <ComboBoxItem Content="150 DPI (Hızlı Tarama / Düşük Boyut)"/>
+                    <ComboBoxItem Content="300 DPI (Standart Kalite - Belediye Standardı)"/>
+                    <ComboBoxItem Content="600 DPI (Yüksek Çözünürlük / İmar Arşiv)"/>
+                </ComboBox>
+
+                <Button x:Name="btnKaydet" Content="💾 Donanım Konfigürasyonunu Kaydet" Height="42" Background="#2563EB" Foreground="White" FontWeight="Bold" Click="btnKaydet_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
